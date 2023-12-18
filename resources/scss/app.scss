@@ -12,3 +12,11 @@ $fa-font-path: "../webfonts" !default;
 h1 {
     color: $text-color;
 }
+ul {
+    list-style: none;
+}
+#jumbotron{
+    background-image: url(/public/img/jumbotron.jpg);
+    background-size: cover;
+    height: 450px;
+}
