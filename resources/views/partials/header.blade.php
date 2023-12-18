@@ -1,5 +1,5 @@
 <div>
-    <div class="container">
+    <div class="container py-2">
         <div class="row align-items-center justify-content-center">
             <div class="col-2">
                 <img src="{{Vite::asset('resources/img/dc-logo.png')}}" alt="Logo">
