@@ -1,6 +1,6 @@
 <div class="col-2">
     <div>
-        <a href="">
+        <a href="{{route('pages.show', $key)}}">
             <img class="my-img" src="{{$comic['thumb']}}" alt="{{$comic['title']}}" />
             <div>
                 <p>{{$comic['series']}}</p>

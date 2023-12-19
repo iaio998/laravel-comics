@@ -22,3 +22,14 @@ Route::get('/', function () {
     $fourth = config('my-footer.fourth');
     return view('home', compact('product', 'hyper', 'first', 'second', 'third', 'fourth'));
 });
+Route::get('/pages/{index}', function ($index) {
+    $comics = config('my-comics.comics');
+    $hyper = config('my-menu.menu');
+    if ($index >= 0 && $index < count($comics)) {
+        $product = $comics[$index];
+        return view('pages.show', compact('product', 'hyper'));
+    } else {
+        abort(404);
+    }
+
+})->name('pages.show');

@@ -7,12 +7,19 @@
     <div class="bg-black text-white py-5">
         <div class="container">
             <div class="row">
-                @foreach ($product as $key => $comic)
-                @include('partials.card')
-                @endforeach
-            </div>
-            <div class="d-flex justify-content-center">
-                <button class="my-2">LOAD MORE</button>
+                <div class="col-12">
+                    <div>
+
+                        <img class="my-img" src="{{$product['thumb']}}" alt="{{$product['title']}}" />
+                        <div>
+                            <p>{{$product['series']}}</p>
+                            <p>{{$product['description']}}</p>
+                            <p>GENRE: {{$product['type']}} | NAME: {{$product['title']}} </p>
+                            <p>PRICE: {{$product['price']}}</p>
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>
