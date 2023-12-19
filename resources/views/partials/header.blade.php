@@ -1,27 +1,21 @@
-<div>
+<div id="header">
     <div class="container py-2">
-        <div class="row align-items-center justify-content-center">
-            <div class="col-2">
-                <img src="{{Vite::asset('resources/img/dc-logo.png')}}" alt="Logo">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{{route('home')}}"><img src="{{Vite::asset('resources/img/dc-logo.png')}}"
+                        alt="Logo"></a>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link" aria-current="page" href="{{route('home')}}">Home</a>
+                        <a class="nav-link" href="{{route('comics.index')}}">Comics</a>
+                    </div>
+                </div>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-primary" type="submit">Search</button>
+                </form>
             </div>
-            <div class="col">
-                <ul class="d-flex align-items-center justify-content-center m-0">
-                    <li class="px-1"><a href="{{route('home')}}">Home</a></li>
-                    <li class="px-1"><a href="{{route('comics.index')}}">Comics</a></li>
-                    <li class="px-1"><a href="">Movies</a></li>
-                    <li class="px-1"><a href="">TV</a></li>
-                    <li class="px-1"><a href="">Games</a></li>
-                    <li class="px-1"><a href="">Collectibles</a></li>
-                    <li class="px-1"><a href="">Videos</a></li>
-                    <li class="px-1"><a href="">Fans</a></li>
-                    <li class="px-1"><a href="">News</a></li>
-                    <li class="px-1"><a href="">Shop</a></li>
-                </ul>
-            </div>
-            <div class="col">
-                <p class="m-0">Search...</p>
-            </div>
-        </div>
+        </nav>
     </div>
     <div id="jumbotron"></div>
 </div>

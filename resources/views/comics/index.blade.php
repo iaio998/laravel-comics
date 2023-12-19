@@ -24,7 +24,7 @@
                     <div class="div-img">
                         <img src="{{$option['img']}}" alt="{{$option['text']}}" />
                     </div>
-                    <a href="#"> {{ $option['text'] }}</a>
+                    <a href="#" class="text-dark"> {{ $option['text'] }}</a>
                 </div>
                 @endforeach
             </div>
