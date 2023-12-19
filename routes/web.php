@@ -14,6 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $product = config('comics.comics');
-    return view('home', compact('product'));
+    $product = config('my-comics.comics');
+    $hyper = config('my-menu.menu');
+    $first = config('my-footer.first');
+    $second = config('my-footer.second');
+    $third = config('my-footer.third');
+    $fourth = config('my-footer.fourth');
+    return view('home', compact('product', 'hyper', 'first', 'second', 'third', 'fourth'));
 });
