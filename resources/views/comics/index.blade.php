@@ -7,7 +7,12 @@
     <div class="bg-black text-white py-5">
         <div class="container">
             <div class="row">
-                Questa e' una home
+                @foreach ($product as $key => $comic)
+                @include('partials.card')
+                @endforeach
+            </div>
+            <div class="d-flex justify-content-center">
+                <button class="my-2">LOAD MORE</button>
             </div>
         </div>
     </div>

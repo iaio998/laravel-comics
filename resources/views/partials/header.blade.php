@@ -6,8 +6,8 @@
             </div>
             <div class="col">
                 <ul class="d-flex align-items-center justify-content-center m-0">
-                    <li class="px-1"><a href="">Characters</a></li>
-                    <li class="px-1"><a href="">Comics</a></li>
+                    <li class="px-1"><a href="{{route('home')}}">Home</a></li>
+                    <li class="px-1"><a href="{{route('comics.index')}}">Comics</a></li>
                     <li class="px-1"><a href="">Movies</a></li>
                     <li class="px-1"><a href="">TV</a></li>
                     <li class="px-1"><a href="">Games</a></li>
