@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ComicController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,20 +23,20 @@ Route::get('/', function () {
     return view('home', compact('hyper', 'first', 'second', 'third', 'fourth'));
 })->name('home');
 
-Route::get('/comics', function () {
-    $product = config('my-comics.comics');
-    $hyper = config('my-menu.menu');
-    return view('comics.index', compact('product', 'hyper'));
-})->name('comics.index');
+// Route::get('/comics', function () {
+//     $product = config('my-comics.comics');
+//     $hyper = config('my-menu.menu');
+//     return view('comics.index', compact('product', 'hyper'));
+// })->name('comics.index');
 
-Route::get('/comics/{index}', function ($index) {
-    $comics = config('my-comics.comics');
-    $hyper = config('my-menu.menu');
-    if ($index >= 0 && $index < count($comics)) {
-        $product = $comics[$index];
-        return view('comics.show', compact('product', 'hyper'));
-    } else {
-        abort(404);
-    }
-
-})->name('pages.show');
+// Route::get('/comics/{index}', function ($index) {
+//     $comics = config('my-comics.comics');
+//     $hyper = config('my-menu.menu');
+//     if ($index >= 0 && $index < count($comics)) {
+//         $product = $comics[$index];
+//         return view('comics.show', compact('product', 'hyper'));
+//     } else {
+//         abort(404);
+//     }
+// })->name('pages.show');
+// Route::resource('comics', ComicController::class);
