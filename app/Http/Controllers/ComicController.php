@@ -2,18 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\View\View;
+use App\Models\Comic;
 
 class ComicController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function index()
     {
-        //
+        $comics = Comic::all();
+        return view('comics.index', compact('comics'));
     }
 
     /**
@@ -41,11 +43,11 @@ class ComicController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
-    public function show($id)
+    public function show(Comic $comic)
     {
-        //
+        return view('comics.show', compact('comic'));
     }
 
     /**
