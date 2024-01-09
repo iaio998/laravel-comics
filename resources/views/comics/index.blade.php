@@ -6,6 +6,10 @@
 <main>
     <div class="bg-black text-white py-5">
         <div class="container">
+            <button class="btn btn-primary"><a href="{{route('comics.create')}}">Create new</a></button>
+            @if(session()->has('message'))
+            <div class="alert alert-success">{{ session()->get('message') }}</div>
+            @endif
             <div class="row">
                 @foreach ($comics as $comic)
                 @include('partials.card')

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\View\View;
-use App\Illuminate\Http\Request;
+use Illuminate\Http\Request;
 use App\Models\Comic;
 
 class ComicController extends Controller
@@ -40,22 +40,23 @@ class ComicController extends Controller
     {
         // dd($request->all());
         $data = $request->all();
-        $newComic = new Comic();
-        $newComic->title = $data['title'];
-        $newComic->description = $data['description'];
-        $newComic->thumb = $data['thumb'];
-        $newComic->price = $data['price'];
-        $newComic->sale_date = '2020-07-01';
-        $newComic->series = $data['series'];
-        $newComic->type = 'a piacere';
-        $newComic->save();
+        $newComic = Comic::create($data);
+        // $newComic = new Comic();
+        // $newComic->title = $data['title'];
+        // $newComic->description = $data['description'];
+        // $newComic->thumb = $data['thumb'];
+        // $newComic->price = $data['price'];
+
+        // $newComic->series = $data['series'];
+        // $newComic->type = 'a piacere';
+        // $newComic->save();
         return to_route('comics.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Comic  $comic
      * @return \Illuminate\View\View
      */
     public function show(Comic $comic)
@@ -67,33 +68,44 @@ class ComicController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
-    public function edit($id)
+    public function edit(Comic $comic)
     {
-        //
+        return view('comics.edit', compact('comic'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Comic  $comic
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Comic $comic)
     {
-        //
+        $data = $request->all();
+        $comic->title = $data['title'];
+        $comic->description = $data['description'];
+        $comic->thumb = $data['thumb'];
+        $comic->price = $data['price'];
+        $comic->sale_date = '2020-07-01';
+        $comic->series = $data['series'];
+        $comic->type = $data['type'];
+        $comic->update();
+        return to_route('comics.show', $comic->id);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * 
+     * @param  \App\Models\Comic  $comic
+     * 
      */
-    public function destroy($id)
+    public function destroy(Comic $comic)
     {
-        //
+        $comic->delete();
+        return to_route('comics.index')->with('deleted', 'Il prodotto $comic->title e\' stato eliminato');
     }
 }

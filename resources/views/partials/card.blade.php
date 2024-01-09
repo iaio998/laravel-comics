@@ -7,5 +7,13 @@
                 <p>{{$comic->series}}</p>
             </div>
         </a>
+
     </div>
+    <form action="{{route('comics.destroy', $comic->id)}}" method="POST">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="btn btn-danger">
+            Delete
+        </button>
+    </form>
 </div>
